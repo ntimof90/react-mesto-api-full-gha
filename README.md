@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.137.7
+IP <158.160.137.7>
 
 Frontend https://coast.students.nomoredomainsmonster.ru
 
