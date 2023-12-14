@@ -1,0 +1,18 @@
+.content-section {
+  min-width: 320px;
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .content-section {
+    padding: 0 24px;
+  }
+}
+
+@media screen and (max-width: 735px) {
+  .content-section {
+    padding: 0;
+  }
+}
