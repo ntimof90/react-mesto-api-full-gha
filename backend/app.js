@@ -24,7 +24,7 @@ const allowedCors = [
   'http://localhost:3000',
 ];
 
-const { PORT, MONGO_URL } = process.env;
+const { PORT = 3000, MONGO_URL } = process.env;
 
 const app = express();
 
