@@ -27,13 +27,14 @@ const findCards = async (req, res, next) => {
 const findCardByIdAndDelete = async (req, res, next) => {
   try {
     const { cardId } = req.params;
-    let card = await Card.findOneAndDelete({ _id: cardId, owner: req.user._id });
+    let card = await Card.findById(cardId);
     if (!card) {
-      card = await Card.findById(cardId);
+      throw new NotFoundError('Карточка с указанным id не найдена');
+    } else {
+      card = card.deleteOne({ owner: req.user._id });
       if (!card) {
-        throw new NotFoundError('Карточка с указанным id не найдена');
+        throw new ForbiddenError('У вас нет прав на удаление чужой карточки');
       }
-      throw new ForbiddenError('У вас нет прав на удаление чужой карточки');
     }
     return res.send({ data: card });
   } catch (error) {
